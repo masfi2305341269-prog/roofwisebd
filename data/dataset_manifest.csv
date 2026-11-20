@@ -1,0 +1,9 @@
+dataset_group,file_or_artifact,format,item_count,size_mb,status,notes
+bangladesh_pv,A comprehensive dataset for monitoring photovoltaic systems (295 CSVs),CSV,295,117.12,Audited - Complete,"408,059 30-second observations across 12 months in 2020. 25 paired columns."
+solnet_clean,Clean solar panel photos,JPG,722,1888.6,Audited - Deduplication Required,"722 images (713 unique MD5, 300 11zon compressed derivatives). 4624x3468."
+solnet_dusty,Dusty / dirty solar panel photos,JPG,718,1760.25,Audited - Deduplication Required,"718 images (635 unique MD5, 83 exact duplicates, 300 11zon compressed derivatives)."
+nasa_power,POWER_Point_Hourly_20191101_20261115_023d81N_090d41E_UTC.csv,CSV,61728,2.04,Audited - Complete for Dhaka,"61,728 hourly rows (2019-2026). 2020 overlap has 0 missing values."
+dhaka_rooftop_csv,dhaka_citycenter_greaterregion_attributes.csv,CSV,632745,127.63,Audited - Complete,"632,745 building polygons in Greater Dhaka. 14 columns. 0 missing in core area/yield."
+dhaka_rooftop_shp,"Dhaka_rooftop_potential (.shp, .shx, .dbf, .prj)",SHP/DBF,4,479.36,Audited - Extracted,CRS: WGS_1984_UTM_Zone_46N. Polygons for Greater Dhaka.
+dhaka_rooftop_metadata,dhaka_result_metadata.xlsx,XLSX,1,0.01,Audited - Complete,Data dictionary and WorldView-3 imagery provenance notes.
+dhaka_rooftop_research,dhaka_rooftop_potential_neo.pdf,PDF,24,1.77,Audited - Complete,24-page NEO technical report (Feb 2022) with methodology.

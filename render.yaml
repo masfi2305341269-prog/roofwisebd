@@ -1,0 +1,84 @@
+# render.yaml — RoofwiseBD Backend deployment on Render
+# https://render.com/docs/blueprint-spec
+# Place this file at the REPO ROOT so Render's Blueprint auto-detects it.
+# Docs: https://render.com/docs/yaml-spec
+
+services:
+  - type: web
+    name: roofwisebd-backend
+    runtime: python
+    region: singapore          # closest to Bangladesh; change to frankfurt if needed
+    plan: free                 # upgrade to starter ($7/mo) for always-on + more RAM
+
+    # Root of the FastAPI project inside your repo
+    rootDir: backend
+
+    # Render sets $PORT automatically; uvicorn binds to it
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT --workers 2
+
+    # Build step — installs Python dependencies
+    buildCommand: pip install -r requirements.txt
+
+    # Health-check endpoint (FastAPI returns 200 at root)
+    healthCheckPath: /api/v1/health
+
+    # Auto-deploy on every push to main branch
+    autoDeploy: true
+    branch: main
+
+    # ── Environment Variables ────────────────────────────────────────────────
+    # Set the values marked <FILL_IN> in the Render Dashboard under
+    # "Environment" → "Secret Files" or "Environment Variables".
+    # NEVER commit real secrets here.
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+
+      - key: AUTH_MODE
+        value: supabase
+
+      # Supabase PostgreSQL connection (Session pooler — port 5432)
+      - key: DATABASE_URL
+        sync: false            # Render will prompt you to enter the value
+
+      # Supabase project URL  e.g. https://dopfzvcmefjpvdtefvpj.supabase.co
+      - key: SUPABASE_URL
+        sync: false
+
+      # Supabase anon/public key (safe to expose to browser, but keep it out of git)
+      - key: SUPABASE_ANON_KEY
+        sync: false
+
+      # Supabase JWT secret — KEEP SECRET
+      - key: SUPABASE_JWT_SECRET
+        sync: false
+
+      # Cross-domain cookies (required for Cloudflare Pages ↔ Render)
+      - key: COOKIE_SECURE
+        value: "true"
+
+      - key: COOKIE_SAMESITE
+        value: none
+
+      # Comma-separated list of trusted CORS origins
+      - key: BACKEND_CORS_ORIGINS
+        value: "https://roofwisebd.pages.dev,https://roofwisebd.com,https://www.roofwisebd.com"
+
+      # Regex covering all Cloudflare preview deployments + custom domain
+      - key: BACKEND_CORS_ORIGIN_REGEX
+        value: "^https://([a-zA-Z0-9_-]+\\.)*(pages\\.dev|roofwisebd\\.com)$"
+
+      # Public frontend URL (used in email links etc.)
+      - key: FRONTEND_URL
+        value: "https://roofwisebd.pages.dev"
+
+      # Optional: Redis URL for distributed rate-limiting
+      # Leave blank to use in-memory fallback with strict_quota policy
+      - key: REDIS_URL
+        value: ""
+
+      - key: RATE_LIMIT_FAILURE_POLICY
+        value: strict_quota
+
+      - key: RATE_LIMIT_ESTIMATED_WORKERS
+        value: "2"

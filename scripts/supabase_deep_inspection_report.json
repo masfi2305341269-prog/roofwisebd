@@ -1,0 +1,88 @@
+{
+  "current_database": "postgres",
+  "current_user": "postgres",
+  "current_schema": "public",
+  "search_path": "\"\\$user\", public, extensions",
+  "all_schemas": [
+    "auth",
+    "extensions",
+    "graphql",
+    "graphql_public",
+    "information_schema",
+    "pg_catalog",
+    "pg_toast",
+    "pgbouncer",
+    "public",
+    "realtime",
+    "storage",
+    "vault"
+  ],
+  "non_system_schemas": [
+    "auth",
+    "extensions",
+    "graphql",
+    "graphql_public",
+    "pgbouncer",
+    "public",
+    "realtime",
+    "storage",
+    "vault"
+  ],
+  "schema_table_map": {
+    "auth": [
+      "audit_log_entries",
+      "custom_oauth_providers",
+      "flow_state",
+      "identities",
+      "instances",
+      "mfa_amr_claims",
+      "mfa_challenges",
+      "mfa_factors",
+      "mfa_recovery_code_sets",
+      "mfa_recovery_codes",
+      "oauth_authorizations",
+      "oauth_client_states",
+      "oauth_clients",
+      "oauth_consents",
+      "one_time_tokens",
+      "refresh_tokens",
+      "saml_providers",
+      "saml_relay_states",
+      "schema_migrations",
+      "scim_tokens",
+      "scim_users",
+      "sessions",
+      "sso_domains",
+      "sso_providers",
+      "users",
+      "webauthn_challenges",
+      "webauthn_credentials"
+    ],
+    "extensions": [
+      "pg_stat_statements",
+      "pg_stat_statements_info"
+    ],
+    "realtime": [
+      "messages",
+      "schema_migrations",
+      "subscription"
+    ],
+    "storage": [
+      "bucket_lifecycle_states",
+      "buckets",
+      "buckets_analytics",
+      "buckets_vectors",
+      "lifecycle_abandoned_artifacts",
+      "migrations",
+      "objects",
+      "s3_multipart_uploads",
+      "s3_multipart_uploads_parts",
+      "vector_indexes"
+    ],
+    "vault": [
+      "decrypted_secrets",
+      "secrets"
+    ]
+  },
+  "alembic_version_locations": []
+}

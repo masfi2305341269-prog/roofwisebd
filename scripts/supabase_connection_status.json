@@ -1,0 +1,12 @@
+{
+  "status": "connected",
+  "hostname": "aws-0-ap-southeast-1.pooler.supabase.com",
+  "port": 5432,
+  "database": "postgres",
+  "user": "postgres",
+  "postgresql_version": "17.12",
+  "ssl_enabled": true,
+  "existing_public_tables": [],
+  "target_sanitized": "postgresql://postgres.dopfzvcmefjpvdtefvpj:******@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres",
+  "server_time": "2026-11-17 18:24:31.148092+00:00"
+}

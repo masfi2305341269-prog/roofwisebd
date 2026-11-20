@@ -1,0 +1,16 @@
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+pydantic>=2.9.0
+sqlalchemy>=2.0.35
+python-multipart>=0.0.12
+pillow>=10.0.0
+numpy>=1.26.0
+pytest>=8.3.0
+httpx>=0.28.0
+pwdlib[argon2]>=0.4.2
+PyJWT[cryptography]>=2.9.0
+supabase>=2.0.0
+alembic>=1.13.0
+email-validator>=2.2.0
+redis>=5.0.0
+psycopg[binary]>=3.2.0

@@ -1,0 +1,72 @@
+# ── Secrets & Environment Variables ─────────────────────────────────────────
+# Explicit paths in addition to the glob patterns below
+backend/.env
+frontend/.env.local
+frontend/.env.production
+frontend/.env.staging
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+.env
+.env.local
+.env.production
+.env.staging
+.env.development
+.venv/
+env/
+venv/
+ENV/
+
+# Large dataset raw files
+data/raw/bangladesh_pv/*.csv
+data/raw/solnet/clean/*
+!data/raw/solnet/clean/.gitkeep
+data/raw/solnet/dusty/*
+!data/raw/solnet/dusty/.gitkeep
+data/raw/nasa_power/*.csv
+data/raw/dhaka_rooftop/csv/*.csv
+data/raw/dhaka_rooftop/shp/*.zip
+data/raw/dhaka_rooftop/shp/*.shp
+data/dataset_audit_report.json
+
+# Trained Large Model Weights
+models/generation/*.ubj
+models/generation/*.bin
+models/dust/*.keras
+models/dust/*.h5
+
+# SQLite Database
+*.db
+*.sqlite3
+
+# Uploads
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Build outputs
+frontend/dist/
+frontend/dist-ssr/
+*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+data/raw/dhaka_rooftop/shp/Dhaka_rooftop_potential.dbf
+
+data/raw/dhaka_rooftop/shp/Dhaka_rooftop_potential.dbf
